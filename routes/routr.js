@@ -3,12 +3,9 @@ const r = express.Router();
 const controller = require('../controller/index')
 const valoadtion = require("../Middleware/validation")
 
-const use = (fn) => (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next)
-}
 
 r.post('/teamSchemaCreate', controller.teamSchemaCreate);
-r.post('/playerSchemaCreate', valoadtion('playerSchemaJoi'), use(controller.playerSchemaCreate));
+r.post('/playerSchemaCreate', valoadtion('playerSchemaJoi'), controller.playerSchemaCreate);
 
 
 r.get('/teamSchemaGet', controller.teamSchemaGet);
