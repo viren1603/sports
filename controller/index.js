@@ -1,4 +1,7 @@
-const { teamSchema, playerSchema } = require("../model/index");
+const { teamSchema } = require("../model/index");
+const playerSchema = require('../model/index')
+
+// const jwt = require("jsonwebtoken")
 
 module.exports.teamSchemaCreate = async function (req, res) {
     let ids = req.body.ids;
@@ -13,14 +16,16 @@ module.exports.teamSchemaCreate = async function (req, res) {
 module.exports.playerSchemaCreate = async function (req, res) {
     let ids = req.body.ids;
     let name = req.body.name
-    let age = req.body.age
-    let captain = req.body.captain
+    let email = req.body.email
+    let date_joining = req.body.date_joining
     let dob = req.body.dob
+    // let authtoken = await jwt.sign(req.body.email, "huuyr7c6778gytuer54664fgh6874ff559j88hgf5587")
     let savePlayer = await playerSchema.build({
-        ids, name, age, captain, dob
+        ids, name, email, date_joining, dob
     })
     await savePlayer.save()
-    res.end('data is posted')
+    // res.json({ authtoken })
+    res.send("data posted")
 }
 
 

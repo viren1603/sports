@@ -4,6 +4,10 @@ const app = express();
 const port = process.env.PORT;
 const bodyparser = require("body-parser");
 const sequlize = require("sequelize");
+
+const playerSchema = require('./model/index')
+const teamSchema = require('./model/index')
+
 // app.use(express.Router())
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }))

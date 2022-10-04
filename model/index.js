@@ -10,8 +10,8 @@ teamSchema.sync()
 const playerSchema = database.define('player', {
     ids: sequlize.INTEGER,
     name: sequlize.STRING,
-    age: sequlize.INTEGER,
-    captain: sequlize.STRING,
+    email: sequlize.STRING,
+    date_joining: sequlize.INTEGER,
     dob: sequlize.INTEGER
 })
 playerSchema.sync()
